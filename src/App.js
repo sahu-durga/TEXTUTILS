@@ -1,8 +1,8 @@
 // import logo from './logo.svg';
 
 import './App.css';
-import Alert from './components/Alert';
 import About from './components/About';
+import Alert from './components/Alert';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import React , { useState } from 'react';
@@ -40,6 +40,7 @@ function App() {
   }
   const obtn = ()=>{
     let cext = document.body.style.backgroundColor = '#e28743';
+    
     setColour(cext)
     
 
@@ -67,7 +68,7 @@ function App() {
       document.body.style.backgroundColor = "#042743"
       
       showAlert("dark  mode has been enabled ", "Success")
-      document.title = "enable-darkmode"
+      // document.title = "enable-darkmode"
       // setInterval(()=>{
       //   document.title = "textutils is amazing"
       // },2000)
@@ -83,32 +84,38 @@ function App() {
         document.body.style.backgroundColor = "white"
       
         showAlert("light  mode has been enabled ", "success")
-        document.title = "enable-lightmode"
+        // document.title = "enable-lightmode"
       }
+
+
+      
+
     
 
   }
   return (
     <>
-    <BrowserRouter>
+   <BrowserRouter>
       
 <Navbar title = "Textutilsss" mode={mode} toggleMode={toggleMode} colour = {colour} ybtn = {ybtn} obtn = {obtn} rbtn = {rbtn} gbtn={gbtn}  aboutText = "About Us"/>
 <Alert alert = {alert}/>
 {/* <Navbar /> */}
 <div className="container my-3">
            <Routes>
-          <Route exact path="/about"
-            element={<About />}/>
-          </Routes>
-          <Routes>
-          <Route axact path="/" element={
-          <TextForm showAlert={showAlert} heading = "Enter the text analyze below " mode = {mode}/>}/>
-          </Routes>
+           <Route exact path="/about"
+              element= {<About mode = {mode}/>} />
+            </Routes> 
+           <Routes>  
+           <Route axact path="/" element={
+    
+          <TextForm showAlert={showAlert} heading = "Textutils- Word counter, character counter counter, " mode = {mode}/>}/>
+          
+           </Routes> 
           
         
 </div>
  
-  </BrowserRouter>
+   </BrowserRouter> 
   </>
 
 
